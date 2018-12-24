@@ -1,3 +1,9 @@
+Changes with this fork
+======================
+
+The definition of Pending has been changed to NOT include jobs scheduled in the future.  That way you can see how many jobs are waiting to be processed.
+
+
 delayed_job_web
 ===============
 

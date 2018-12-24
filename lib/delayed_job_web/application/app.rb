@@ -171,7 +171,8 @@ class DelayedJobWeb < Sinatra::Base
       when :failed
         rel.where('last_error IS NOT NULL')
       when :pending
-        rel.where(:attempts => 0, :locked_at => nil)
+        #waggl modified this to not include job scheduled for the future
+        rel.where(:attempts => 0, :locked_at => nil).where("run_at < now()")
       else
         rel
       end
